@@ -15,9 +15,9 @@
   --kf-gray:      #6B7280;
   --kf-dark:      #1A0A0D;
   --kf-border:    #F0D0D5;
-  --shadow-sm:    0 2px 8px rgba(2,62,88,0.10);
-  --shadow-md:    0 6px 24px rgba(2,62,88,0.14);
-  --shadow-lg:    0 16px 48px rgba(2,62,88,0.18);
+  --shadow-sm:    0 2px 8px rgba(45,4,16,0.10);
+  --shadow-md:    0 6px 24px rgba(45,4,16,0.14);
+  --shadow-lg:    0 16px 48px rgba(45,4,16,0.18);
   --radius:       12px;
   --radius-sm:    8px;
   --transition:   0.25s ease;
@@ -133,13 +133,13 @@ ul { list-style: none; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(2,62,88,0.96);
+  background: rgba(45,4,16,0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(212,98,122,0.15);
   transition: all var(--transition);
 }
 .navbar.scrolled {
-  background: rgba(2,62,88,0.99);
+  background: rgba(45,4,16,0.99);
   box-shadow: var(--shadow-md);
 }
 .nav-inner {
