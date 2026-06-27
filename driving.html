@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driving School — Kingfisher Auto École</title>
+  <meta name="description" content="Kingfisher Auto École — 25hr in-class with simulator + 15hr on-road training. Three packages starting at $920+HST." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐦</div>
+        <div class="nav-logo-text">
+          <strong>Kingfisher</strong>
+          <span>Transport & Logistics</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="moving.html">Moving</a></li>
+        <li><a href="rental.html">Rental</a></li>
+        <li><a href="driving.html" class="active">Driving School</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="moving.html" class="btn btn-primary btn-sm">Get a Quote</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="container">
+    <div class="section-tag">Auto École — Driving School</div>
+    <h1>Drive with Confidence.<br/>Protect Every Life.</h1>
+    <p>25 hours of in-class theory, a state-of-the-art simulator, and 15 hours behind the wheel — everything a new driver needs to succeed and stay safe for life.</p>
+  </div>
+</div>
+
+<!-- ═══ WHY OUR DRIVING SCHOOL ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="moving-info-grid">
+      <div>
+        <div class="section-tag">Our Approach</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:16px;">More Than <span>Passing a Test</span></h2>
+        <p style="color:var(--kf-gray);font-size:0.95rem;line-height:1.8;margin-bottom:24px;">
+          At Kingfisher Auto École, we don't just teach students how to pass a driving exam — we instill the habits, instincts, and confidence that make a driver safe for life. Our program combines structured classroom theory with hands-on simulator sessions and real on-road experience.
+        </p>
+        <div class="moving-features">
+          <div class="moving-feature">
+            <div class="moving-feature-icon">📚</div>
+            <div class="moving-feature-text">
+              <strong>25 Hours In-Class Theory</strong>
+              <span>Road signs, rules, defensive driving, and traffic law</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🕹️</div>
+            <div class="moving-feature-text">
+              <strong>Driving Simulator Sessions</strong>
+              <span>Build muscle memory and confidence in a safe environment before hitting the road</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🚗</div>
+            <div class="moving-feature-text">
+              <strong>Up to 20 Hours On-Road</strong>
+              <span>Real-world driving with certified instructors in our school vehicle</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">📜</div>
+            <div class="moving-feature-text">
+              <strong>Government-Issued Certificate</strong>
+              <span>Included in all packages — required for license application</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🎯</div>
+            <div class="moving-feature-text">
+              <strong>Driver's Test Support</strong>
+              <span>1-hour school vehicle use for your official driver's test</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enroll Form -->
+      <div>
+        <div class="form-card">
+          <div style="margin-bottom:28px;">
+            <h3 style="font-size:1.3rem;font-weight:800;color:var(--kf-deep);margin-bottom:6px;">Enroll Today</h3>
+            <p style="font-size:0.85rem;color:var(--kf-gray);">Select your package and fill in your details. We'll confirm your enrollment and schedule your first session.</p>
+          </div>
+
+          <form id="driving-form" novalidate>
+            <div class="form-group">
+              <label for="driving-package">Choose Your Package</label>
+              <select id="driving-package" name="package" required>
+                <option value="">Select a package...</option>
+                <option value="basic">Basic Package — $920 + HST</option>
+                <option value="standard">Standard Package — $1,320 + HST</option>
+                <option value="premium">Premium Package — $1,670 + HST</option>
+                <option value="refresher">Refresher Lessons — $85/hr + HST (min 2hrs)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="driving-experience">Current Driving Experience</label>
+              <select id="driving-experience" name="experience">
+                <option value="none">No experience at all</option>
+                <option value="some">Some informal practice</option>
+                <option value="learner">Have a learner's permit</option>
+                <option value="refresh">Experienced — need refresher</option>
+              </select>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>Preferred Start Date</label>
+                <input type="date" name="start-date" required />
+              </div>
+              <div class="form-group">
+                <label>Preferred Schedule</label>
+                <select name="schedule">
+                  <option value="weekday-morning">Weekday Mornings</option>
+                  <option value="weekday-afternoon">Weekday Afternoons</option>
+                  <option value="weekday-evening">Weekday Evenings</option>
+                  <option value="weekend">Weekends</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="section-tag" style="margin-bottom:16px;">Student Information</div>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="firstname" placeholder="Jean" required />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="lastname" placeholder="Tremblay" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input type="date" name="dob" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="jean@example.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="(506) 000-0000" required />
+            </div>
+            <div class="form-group">
+              <label>Additional Notes <span style="color:var(--kf-gray);font-weight:400;">(optional)</span></label>
+              <textarea name="notes" rows="2" placeholder="Any special requirements or questions..."></textarea>
+            </div>
+
+            <div class="form-note">
+              🎓 Upon enrollment, we'll reach out to confirm your schedule, collect payment, and share your welcome kit.
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+              Enroll Now ↗
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="section" style="background:var(--kf-offwhite);">
+  <div class="container text-center">
+    <div class="section-tag">Pricing</div>
+    <h2 class="section-title">Choose Your <span>Learning Package</span></h2>
+    <p class="section-sub">All packages include 20 hours of online theory, 5-hour virtual in-class lesson, school vehicle for driver's test, and a government-issued certificate.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Basic -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-icon">🥉</div>
+        <h3>Basic Package</h3>
+        <div class="pricing-price">$920 <span>+ HST</span></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="check">✓</span> 20 hours online theory</div>
+          <div class="pricing-feature"><span class="check">✓</span> 5-hour virtual in-class lesson</div>
+          <div class="pricing-feature"><span class="check">✓</span> <strong>10 hours</strong> in-car lessons</div>
+          <div class="pricing-feature"><span class="check">✓</span> 1 hour for driver's test (school vehicle)</div>
+          <div class="pricing-feature"><span class="check">✓</span> Government-issued certificate</div>
+          <div class="pricing-feature"><span class="check">✓</span> Extra hours at $85/hr</div>
+        </div>
+        <a href="#driving-form" class="btn btn-blue" style="width:100%;justify-content:center;"
+          onclick="document.getElementById('driving-package').value='basic'">
+          Enroll Today
+        </a>
+      </div>
+
+      <!-- Standard -->
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-icon">🥈</div>
+        <h3>Standard Package</h3>
+        <div class="pricing-price">$1,320 <span>+ HST</span></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="check">✓</span> 20 hours online theory</div>
+          <div class="pricing-feature"><span class="check">✓</span> 5-hour virtual in-class lesson</div>
+          <div class="pricing-feature"><span class="check">✓</span> <strong>15 hours</strong> in-car lessons</div>
+          <div class="pricing-feature"><span class="check">✓</span> 1 hour for driver's test (school vehicle)</div>
+          <div class="pricing-feature"><span class="check">✓</span> Government-issued certificate</div>
+          <div class="pricing-feature"><span class="check">✓</span> Extra hours at $85/hr</div>
+        </div>
+        <a href="#driving-form" class="btn btn-primary" style="width:100%;justify-content:center;"
+          onclick="document.getElementById('driving-package').value='standard'">
+          Enroll Today
+        </a>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-icon">🥇</div>
+        <h3>Premium Package</h3>
+        <div class="pricing-price">$1,670 <span>+ HST</span></div>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="check">✓</span> 20 hours online theory</div>
+          <div class="pricing-feature"><span class="check">✓</span> 5-hour virtual in-class lesson</div>
+          <div class="pricing-feature"><span class="check">✓</span> <strong>20 hours</strong> in-car lessons</div>
+          <div class="pricing-feature"><span class="check">✓</span> 1 hour for driver's test (school vehicle)</div>
+          <div class="pricing-feature"><span class="check">✓</span> Government-issued certificate</div>
+          <div class="pricing-feature"><span class="check">✓</span> Extra hours at $85/hr</div>
+        </div>
+        <a href="#driving-form" class="btn btn-blue" style="width:100%;justify-content:center;"
+          onclick="document.getElementById('driving-package').value='premium'">
+          Enroll Today
+        </a>
+      </div>
+    </div>
+
+    <!-- Refresher -->
+    <div class="refresher-card">
+      <div>
+        <div style="font-size:2.5rem;margin-bottom:12px;">🔄</div>
+        <h3 style="font-size:1.2rem;font-weight:800;color:var(--kf-deep);margin-bottom:8px;">Refresher Lessons</h3>
+        <div style="font-size:1.8rem;font-weight:900;color:var(--kf-primary);margin-bottom:16px;">
+          $85 <span style="font-size:0.9rem;font-weight:400;color:var(--kf-gray);">/ hour + HST</span>
+        </div>
+        <a href="#driving-form" class="btn btn-blue"
+          onclick="document.getElementById('driving-package').value='refresher'">
+          Book Refresher
+        </a>
+      </div>
+      <div>
+        <div class="pricing-features" style="text-align:left;">
+          <div class="pricing-feature"><span class="check">✓</span> Available at $85/hr + HST</div>
+          <div class="pricing-feature"><span class="check">✓</span> Minimum purchase of 2 hours required</div>
+          <div class="pricing-feature"><span class="check">✓</span> Additional hours purchasable in any quantity</div>
+          <div class="pricing-feature" style="color:var(--kf-orange);">
+            <span style="color:var(--kf-orange);font-weight:800;">✗</span>
+            School vehicle NOT available for driver's test
+          </div>
+          <div class="pricing-feature" style="color:var(--kf-orange);">
+            <span style="color:var(--kf-orange);font-weight:800;">✗</span>
+            Not eligible for government-issued certificate
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CURRICULUM ═══ -->
+<section class="section">
+  <div class="container text-center">
+    <div class="section-tag">What You'll Learn</div>
+    <h2 class="section-title">A Complete Curriculum for <span>Life-Long Safe Driving</span></h2>
+    <p class="section-sub">Our in-class sessions go far beyond road signs — we prepare you for every situation you'll encounter on the road.</p>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-item fade-up">
+        <h4>🚦 Traffic Laws &amp; Road Signs</h4>
+        <p>Full understanding of New Brunswick (and national) traffic legislation, signs, signals, and road markings.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>🛡️ Defensive Driving</h4>
+        <p>Hazard recognition, space management, and anticipating other drivers' mistakes to stay safe at all times.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>🌨️ Adverse Conditions</h4>
+        <p>Driving in snow, ice, rain, fog, and night conditions — crucial skills for Canadian winters.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>🛣️ Highway &amp; City Driving</h4>
+        <p>Merging, lane changes, roundabouts, intersections, parallel parking, and highway cruising.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>🕹️ Simulator Training</h4>
+        <p>Our driving simulator lets you experience challenging scenarios safely — building real confidence before going on the road.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>🧠 Driver Psychology</h4>
+        <p>Managing road rage, stress, fatigue, and distractions. Understanding why accidents happen and how to avoid them.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>🔧 Vehicle Safety Checks</h4>
+        <p>Pre-drive inspection, tire safety, fluid levels, and what to do in a breakdown or emergency.</p>
+      </div>
+      <div class="curriculum-item fade-up">
+        <h4>📋 Exam Preparation</h4>
+        <p>Practice tests, exam tips, and a mock road test to ensure you walk into your driver's exam fully prepared.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1;">
+    <h2>Start Your Driving Journey Today</h2>
+    <p>Seats fill up fast — secure your spot now and be driving with confidence within weeks.</p>
+    <div class="cta-buttons">
+      <a href="#driving-form" class="btn btn-primary btn-lg">Enroll Now</a>
+      <a href="contact.html" class="btn btn-outline btn-lg">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🐦</div>
+          <strong style="color:var(--kf-white);font-size:1.1rem;">Kingfisher</strong>
+        </div>
+        <p>Your trusted transport and logistics partner in New Brunswick and across Canada.</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">in</a>
+          <a href="#" title="Twitter">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="moving.html">Residential Moving</a></li>
+          <li><a href="moving.html">Commercial Moving</a></li>
+          <li><a href="rental.html">Vehicle Rental</a></li>
+          <li><a href="driving.html">Driving School</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+15061234567">📞 (506) 123-4567</a></li>
+          <li><a href="mailto:info@kingfishernb.ca">✉ info@kingfishernb.ca</a></li>
+          <li>📍 New Brunswick, Canada</li>
+          <li>Mon–Sat: 8 AM – 7 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kingfisher Transport &amp; Logistics. All rights reserved.</span>
+      <span>New Brunswick, Canada 🍁</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SUCCESS MODAL ═══ -->
+<div class="modal-overlay" id="driving-success-modal">
+  <div class="modal">
+    <div class="modal-icon">🎓</div>
+    <h3>Enrollment Request Received!</h3>
+    <p>Welcome to Kingfisher Auto École! We'll reach out within <strong>1 business day</strong> to confirm your schedule, answer any questions, and complete your enrollment.</p>
+    <button class="btn btn-primary" data-close-modal="driving-success-modal" style="width:100%;justify-content:center;">
+      Back to Driving School
+    </button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

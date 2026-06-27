@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Rental — Kingfisher</title>
+  <meta name="description" content="Browse Kingfisher's fleet of rental vehicles. Upload your license and insurance and book online in minutes." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 32px 0 8px;
+      align-items: center;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1.5px solid var(--kf-border);
+      background: var(--kf-white);
+      color: var(--kf-gray);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--kf-primary);
+      border-color: var(--kf-primary);
+      color: var(--kf-white);
+    }
+    .car-emoji-display {
+      font-size: 4.5rem;
+      line-height: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+    }
+    .requirement-box {
+      background: linear-gradient(135deg, #FFF8F5, #FFF0E8);
+      border: 1.5px solid #FFD4B8;
+      border-left: 4px solid var(--kf-orange);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+    }
+    .requirement-box h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--kf-orange);
+      margin-bottom: 8px;
+    }
+    .requirement-box ul {
+      list-style: disc;
+      padding-left: 16px;
+    }
+    .requirement-box li {
+      font-size: 0.85rem;
+      color: var(--kf-gray);
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐦</div>
+        <div class="nav-logo-text">
+          <strong>Kingfisher</strong>
+          <span>Transport & Logistics</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="moving.html">Moving</a></li>
+        <li><a href="rental.html" class="active">Rental</a></li>
+        <li><a href="driving.html">Driving School</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="moving.html" class="btn btn-primary btn-sm">Get a Quote</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="container">
+    <div class="section-tag">Vehicle Rental</div>
+    <h1>Your Perfect Ride<br/>Awaits You</h1>
+    <p>Choose from our curated fleet, upload your documents, and you're ready to roll — it takes minutes, not days.</p>
+  </div>
+</div>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section-sm" style="background:var(--kf-offwhite);">
+  <div class="container text-center">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title" style="margin-bottom:0;">Book Your Rental in <span>4 Easy Steps</span></h2>
+    <div class="rental-steps">
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">🚗</div>
+        <h4>1. Browse Fleet</h4>
+        <p>Explore available vehicles by type — sedan, SUV, truck, or van.</p>
+      </div>
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">📅</div>
+        <h4>2. Select Dates</h4>
+        <p>Choose your pickup and return dates and times.</p>
+      </div>
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">📄</div>
+        <h4>3. Upload Documents</h4>
+        <p>Upload your valid driver's license and proof of insurance.</p>
+      </div>
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">✅</div>
+        <h4>4. Confirmed!</h4>
+        <p>Receive your booking confirmation by email and SMS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLEET ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-tag">Our Fleet</div>
+      <h2 class="section-title">Browse Available <span>Vehicles</span></h2>
+      <p class="section-sub">All vehicles are fully maintained, cleaned, and insured. Transparent daily rates — no hidden fees.</p>
+    </div>
+
+    <div class="requirement-box" style="margin-top:28px;">
+      <h4>📋 Rental Requirements</h4>
+      <ul>
+        <li>Valid Canadian or international driver's license</li>
+        <li>Proof of personal vehicle insurance or purchase of our daily coverage</li>
+        <li>Must be 21 years or older (25+ for luxury/premium vehicles)</li>
+        <li>Credit card required for deposit hold</li>
+      </ul>
+    </div>
+
+    <div class="filter-bar">
+      <span style="font-size:0.85rem;font-weight:600;color:var(--kf-gray);margin-right:4px;">Filter:</span>
+      <button class="filter-btn active" data-filter="all">All Vehicles</button>
+      <button class="filter-btn" data-filter="sedan">Sedan</button>
+      <button class="filter-btn" data-filter="suv">SUV</button>
+      <button class="filter-btn" data-filter="truck">Truck</button>
+      <button class="filter-btn" data-filter="van">Van / Minivan</button>
+    </div>
+
+    <div class="cars-grid">
+
+      <!-- Car 1 -->
+      <div class="car-card" data-category="sedan">
+        <div class="car-image">
+          <span class="car-emoji-display">🚗</span>
+          <span class="car-badge available">Available</span>
+        </div>
+        <div class="car-info">
+          <div class="car-category">Sedan</div>
+          <h3>Toyota Camry 2024</h3>
+          <div class="car-specs">
+            <div class="car-spec"><span>👥</span> 5 seats</div>
+            <div class="car-spec"><span>⚙️</span> Auto</div>
+            <div class="car-spec"><span>⛽</span> Hybrid</div>
+            <div class="car-spec"><span>❄️</span> A/C</div>
+          </div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <strong>$79</strong><span>/day + tax</span>
+          </div>
+          <button class="btn btn-blue btn-sm rent-now-btn" data-car="Toyota Camry 2024" data-price="79">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Car 2 -->
+      <div class="car-card" data-category="suv">
+        <div class="car-image" style="background:linear-gradient(135deg,#EEF4FC,#D0E4F7);">
+          <span class="car-emoji-display">🚙</span>
+          <span class="car-badge available">Available</span>
+        </div>
+        <div class="car-info">
+          <div class="car-category">SUV</div>
+          <h3>Mercedes-Benz GLC 2023</h3>
+          <div class="car-specs">
+            <div class="car-spec"><span>👥</span> 5 seats</div>
+            <div class="car-spec"><span>⚙️</span> Auto</div>
+            <div class="car-spec"><span>⛽</span> Petrol</div>
+            <div class="car-spec"><span>❄️</span> A/C</div>
+          </div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <strong>$145</strong><span>/day + tax</span>
+          </div>
+          <button class="btn btn-blue btn-sm rent-now-btn" data-car="Mercedes-Benz GLC 2023" data-price="145">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Car 3 -->
+      <div class="car-card" data-category="suv">
+        <div class="car-image" style="background:linear-gradient(135deg,#F0F7EE,#D0EFD0);">
+          <span class="car-emoji-display">🚙</span>
+          <span class="car-badge limited">2 Left</span>
+        </div>
+        <div class="car-info">
+          <div class="car-category">SUV</div>
+          <h3>Ford Explorer 2024</h3>
+          <div class="car-specs">
+            <div class="car-spec"><span>👥</span> 7 seats</div>
+            <div class="car-spec"><span>⚙️</span> Auto</div>
+            <div class="car-spec"><span>⛽</span> Petrol</div>
+            <div class="car-spec"><span>❄️</span> A/C</div>
+          </div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <strong>$119</strong><span>/day + tax</span>
+          </div>
+          <button class="btn btn-blue btn-sm rent-now-btn" data-car="Ford Explorer 2024" data-price="119">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Car 4 -->
+      <div class="car-card" data-category="truck">
+        <div class="car-image" style="background:linear-gradient(135deg,#FFF8EE,#FFE8C8);">
+          <span class="car-emoji-display">🛻</span>
+          <span class="car-badge available">Available</span>
+        </div>
+        <div class="car-info">
+          <div class="car-category">Truck</div>
+          <h3>RAM 1500 2023</h3>
+          <div class="car-specs">
+            <div class="car-spec"><span>👥</span> 5 seats</div>
+            <div class="car-spec"><span>⚙️</span> Auto</div>
+            <div class="car-spec"><span>⛽</span> Diesel</div>
+            <div class="car-spec"><span>🏋️</span> 4WD</div>
+          </div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <strong>$129</strong><span>/day + tax</span>
+          </div>
+          <button class="btn btn-blue btn-sm rent-now-btn" data-car="RAM 1500 2023" data-price="129">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Car 5 -->
+      <div class="car-card" data-category="van">
+        <div class="car-image" style="background:linear-gradient(135deg,#F5F0FF,#E0D0F7);">
+          <span class="car-emoji-display">🚐</span>
+          <span class="car-badge available">Available</span>
+        </div>
+        <div class="car-info">
+          <div class="car-category">Minivan</div>
+          <h3>Chrysler Pacifica 2024</h3>
+          <div class="car-specs">
+            <div class="car-spec"><span>👥</span> 8 seats</div>
+            <div class="car-spec"><span>⚙️</span> Auto</div>
+            <div class="car-spec"><span>⛽</span> Hybrid</div>
+            <div class="car-spec"><span>❄️</span> A/C</div>
+          </div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <strong>$109</strong><span>/day + tax</span>
+          </div>
+          <button class="btn btn-blue btn-sm rent-now-btn" data-car="Chrysler Pacifica 2024" data-price="109">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Car 6 -->
+      <div class="car-card" data-category="sedan">
+        <div class="car-image" style="background:linear-gradient(135deg,#FFF5F5,#FFD8D8);">
+          <span class="car-emoji-display">🚗</span>
+          <span class="car-badge limited">1 Left</span>
+        </div>
+        <div class="car-info">
+          <div class="car-category">Sedan</div>
+          <h3>Honda Civic 2024</h3>
+          <div class="car-specs">
+            <div class="car-spec"><span>👥</span> 5 seats</div>
+            <div class="car-spec"><span>⚙️</span> Auto</div>
+            <div class="car-spec"><span>⛽</span> Petrol</div>
+            <div class="car-spec"><span>❄️</span> A/C</div>
+          </div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <strong>$69</strong><span>/day + tax</span>
+          </div>
+          <button class="btn btn-blue btn-sm rent-now-btn" data-car="Honda Civic 2024" data-price="69">
+            Rent Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1;">
+    <h2>Can't Find What You're Looking For?</h2>
+    <p>Contact us directly and we'll help match you with the right vehicle for your needs.</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+      <a href="tel:+15061234567" class="btn btn-outline btn-lg">📞 Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🐦</div>
+          <strong style="color:var(--kf-white);font-size:1.1rem;">Kingfisher</strong>
+        </div>
+        <p>Your trusted transport and logistics partner in New Brunswick and across Canada.</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">in</a>
+          <a href="#" title="Twitter">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="moving.html">Residential Moving</a></li>
+          <li><a href="moving.html">Commercial Moving</a></li>
+          <li><a href="rental.html">Vehicle Rental</a></li>
+          <li><a href="driving.html">Driving School</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+15061234567">📞 (506) 123-4567</a></li>
+          <li><a href="mailto:info@kingfishernb.ca">✉ info@kingfishernb.ca</a></li>
+          <li>📍 New Brunswick, Canada</li>
+          <li>Mon–Sat: 8 AM – 7 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kingfisher Transport &amp; Logistics. All rights reserved.</span>
+      <span>New Brunswick, Canada 🍁</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ RENTAL BOOKING MODAL ═══ -->
+<div class="modal-overlay" id="rental-modal">
+  <div class="modal rental-modal-body">
+    <h3 style="font-size:1.3rem;font-weight:800;color:var(--kf-deep);margin-bottom:4px;">Book: <span id="rental-car-name"></span></h3>
+    <p style="color:var(--kf-bright);font-weight:700;font-size:1rem;margin-bottom:20px;" id="rental-car-price"></p>
+
+    <form id="rental-form" novalidate>
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label>Pickup Date</label>
+          <input type="date" name="pickup-date" required />
+        </div>
+        <div class="form-group">
+          <label>Return Date</label>
+          <input type="date" name="return-date" required />
+        </div>
+      </div>
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label>Pickup Time</label>
+          <input type="time" name="pickup-time" value="10:00" required />
+        </div>
+        <div class="form-group">
+          <label>Return Time</label>
+          <input type="time" name="return-time" value="10:00" required />
+        </div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="firstname" placeholder="Jean" required />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="lastname" placeholder="Tremblay" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="jean@example.com" required />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="(506) 000-0000" required />
+      </div>
+
+      <div class="form-group">
+        <label>Upload Driver's License</label>
+        <div class="upload-area" id="license-upload">
+          <input type="file" name="license" accept="image/*,.pdf" />
+          <div class="upload-area-icon">🪪</div>
+          <p><strong>Click to upload</strong> or drag &amp; drop<br/><small>JPG, PNG or PDF — max 5MB</small></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Upload Proof of Insurance</label>
+        <div class="upload-area" id="insurance-upload">
+          <input type="file" name="insurance" accept="image/*,.pdf" />
+          <div class="upload-area-icon">🛡️</div>
+          <p><strong>Click to upload</strong> or drag &amp; drop<br/><small>JPG, PNG or PDF — max 5MB</small></p>
+        </div>
+      </div>
+
+      <div class="form-note">
+        Your documents are securely processed and only used for booking verification.
+      </div>
+
+      <div style="display:flex;gap:12px;margin-top:8px;">
+        <button type="button" class="btn btn-outline" data-close-modal="rental-modal"
+          style="color:var(--kf-gray);border-color:var(--kf-border);flex:1;justify-content:center;">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary" style="flex:2;justify-content:center;">
+          Confirm Booking ↗
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ RENTAL SUCCESS MODAL ═══ -->
+<div class="modal-overlay" id="rental-success-modal">
+  <div class="modal">
+    <div class="modal-icon">🚗</div>
+    <h3>Booking Request Sent!</h3>
+    <p>We've received your rental request. Our team will review your documents and confirm your booking via email and phone <strong>within a few hours</strong>.</p>
+    <button class="btn btn-primary" data-close-modal="rental-success-modal" style="width:100%;justify-content:center;">
+      Browse More Vehicles
+    </button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Fleet filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.car-card').forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

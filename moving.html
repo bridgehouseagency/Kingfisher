@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moving Services — Kingfisher</title>
+  <meta name="description" content="Residential and commercial moving across New Brunswick and Canada. Get a free quote in 30 minutes." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🐦</div>
+        <div class="nav-logo-text">
+          <strong>Kingfisher</strong>
+          <span>Transport & Logistics</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="moving.html" class="active">Moving</a></li>
+        <li><a href="rental.html">Rental</a></li>
+        <li><a href="driving.html">Driving School</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="moving.html" class="btn btn-primary btn-sm">Get a Quote</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="container">
+    <div class="section-tag">Moving Services</div>
+    <h1>Stress-Free Moving,<br/>Anywhere You Go</h1>
+    <p>Residential families or full commercial operations — we move what matters most, with care and speed. Get your quote in 30 minutes.</p>
+  </div>
+</div>
+
+<!-- ═══ MOVING INFO + BOOKING ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="moving-info-grid">
+
+      <!-- Info Column -->
+      <div>
+        <div class="section-tag">What We Offer</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:16px;">Moving Made <span>Simple</span></h2>
+        <p style="color:var(--kf-gray);font-size:0.95rem;line-height:1.8;margin-bottom:24px;">
+          Whether you're moving from a studio apartment down the street or relocating a 4-bedroom house across provinces, Kingfisher has the manpower, equipment, and experience to handle it. We operate beyond New Brunswick — coast to coast if needed.
+        </p>
+
+        <div class="moving-features">
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🏠</div>
+            <div class="moving-feature-text">
+              <strong>Residential Moving</strong>
+              <span>Apartments, houses, condos — every size, every floor</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🏢</div>
+            <div class="moving-feature-text">
+              <strong>Commercial Moving</strong>
+              <span>Offices, retail, equipment — minimal downtime</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🌍</div>
+            <div class="moving-feature-text">
+              <strong>Interprovincial Moves</strong>
+              <span>Licensed to move across all Canadian provinces</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">📦</div>
+            <div class="moving-feature-text">
+              <strong>Packing Services</strong>
+              <span>Full or partial packing available on request</span>
+            </div>
+          </div>
+          <div class="moving-feature">
+            <div class="moving-feature-icon">🛡️</div>
+            <div class="moving-feature-text">
+              <strong>Fully Insured</strong>
+              <span>Your belongings are protected throughout the move</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-note">
+          <h4>💡 How Our Pricing Works</h4>
+          <ul>
+            <li>Base rate by property type and size</li>
+            <li>Floor surcharge: +$25/floor above ground floor (residential)</li>
+            <li>Elevator access discount applied if available</li>
+            <li>Long-carry fee for distance &gt;50ft from door to truck</li>
+            <li>Stairs, tight corridors, or large items may incur add-on fees</li>
+            <li>All add-ons are clearly disclosed before you confirm</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Booking Form Column -->
+      <div>
+        <div class="form-card">
+          <div style="margin-bottom:28px;">
+            <h3 style="font-size:1.3rem;font-weight:800;color:var(--kf-deep);margin-bottom:6px;">Request a Moving Quote</h3>
+            <p style="font-size:0.85rem;color:var(--kf-gray);">Fill in the details below and we'll get back to you with a personalised quote within <strong style="color:var(--kf-primary);">30 minutes</strong>.</p>
+          </div>
+
+          <form id="moving-form" novalidate>
+
+            <!-- Addresses -->
+            <div class="section-tag" style="margin-bottom:16px;">Move Details</div>
+            <div class="form-group">
+              <label for="from-address">Moving From — Address / City / Province</label>
+              <input type="text" id="from-address" name="from-address" placeholder="e.g. 123 Main St, Fredericton, NB" required />
+            </div>
+            <div class="form-group">
+              <label for="to-address">Moving To — Address / City / Province</label>
+              <input type="text" id="to-address" name="to-address" placeholder="e.g. 456 King St, Moncton, NB" required />
+            </div>
+
+            <!-- Date -->
+            <div class="form-group">
+              <label for="move-date">Preferred Move Date</label>
+              <input type="date" id="move-date" name="move-date" required />
+            </div>
+
+            <!-- Property Type -->
+            <div class="form-group">
+              <label for="property-type">Property Type</label>
+              <select id="property-type" name="property-type" required>
+                <option value="">Select type...</option>
+                <option value="house">House</option>
+                <option value="apartment">Apartment / Condo</option>
+                <option value="commercial">Commercial / Office</option>
+              </select>
+            </div>
+
+            <!-- Size (dynamic) -->
+            <div class="form-group" id="size-group">
+              <label for="property-size">Property Size</label>
+              <select id="property-size" name="property-size" required>
+                <option value="">Select size...</option>
+                <option value="studio">Studio</option>
+                <option value="1-bedroom">1 Bedroom</option>
+                <option value="2-bedrooms">2 Bedrooms</option>
+                <option value="3-bedrooms">3 Bedrooms</option>
+                <option value="4-bedrooms">4+ Bedrooms</option>
+              </select>
+            </div>
+
+            <!-- Floor (residential) -->
+            <div class="form-group">
+              <label for="floor-number">Floor Number <span style="color:var(--kf-gray);font-weight:400;">(for apartments/condos)</span></label>
+              <select id="floor-number" name="floor-number">
+                <option value="1">Ground Floor / 1st Floor</option>
+                <option value="2">2nd Floor</option>
+                <option value="3">3rd Floor</option>
+                <option value="4">4th Floor</option>
+                <option value="5">5th Floor or Higher</option>
+                <option value="elevator">Any Floor — Elevator Available</option>
+                <option value="na">Not Applicable</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="move-notes">Anything We Should Know? <span style="color:var(--kf-gray);font-weight:400;">(optional)</span></label>
+              <textarea id="move-notes" name="move-notes" rows="3" placeholder="Large furniture, fragile items, parking restrictions, narrow hallways..."></textarea>
+            </div>
+
+            <!-- Contact -->
+            <div class="section-tag" style="margin-bottom:16px;">Your Contact Info</div>
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="move-firstname">First Name</label>
+                <input type="text" id="move-firstname" name="firstname" placeholder="Jean" required />
+              </div>
+              <div class="form-group">
+                <label for="move-lastname">Last Name</label>
+                <input type="text" id="move-lastname" name="lastname" placeholder="Tremblay" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="move-email">Email Address</label>
+              <input type="email" id="move-email" name="email" placeholder="jean@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="move-phone">Phone Number</label>
+              <input type="tel" id="move-phone" name="phone" placeholder="(506) 000-0000" required />
+            </div>
+
+            <div class="form-note">
+              📞 <strong>We'll reach out within 30 minutes</strong> by email and phone with your custom quote. No commitment required.
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+              Request My Free Quote ↗
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section" style="background:var(--kf-offwhite);">
+  <div class="container text-center">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">Your Move in <span>4 Simple Steps</span></h2>
+    <div class="rental-steps" style="margin-top:48px;">
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">📋</div>
+        <h4>1. Fill the Form</h4>
+        <p>Tell us where you're moving from, to, and what property you have.</p>
+      </div>
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">📞</div>
+        <h4>2. Get Your Quote</h4>
+        <p>We call and email you with a full transparent quote within 30 minutes.</p>
+      </div>
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">✅</div>
+        <h4>3. Confirm &amp; Schedule</h4>
+        <p>Approve the quote and lock in your preferred moving date.</p>
+      </div>
+      <div class="rental-step fade-up">
+        <div class="rental-step-num">🚛</div>
+        <h4>4. We Handle the Rest</h4>
+        <p>Our crew arrives on time, moves your belongings safely and efficiently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1;">
+    <h2>Ready to Plan Your Move?</h2>
+    <p>Get your free quote above, or call us directly — we're available 7 days a week.</p>
+    <div class="cta-buttons">
+      <a href="tel:+15061234567" class="btn btn-primary btn-lg">📞 Call (506) 123-4567</a>
+      <a href="contact.html" class="btn btn-outline btn-lg">Send a Message</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <div class="nav-logo-icon" style="width:36px;height:36px;font-size:1.1rem;">🐦</div>
+          <strong style="color:var(--kf-white);font-size:1.1rem;">Kingfisher</strong>
+        </div>
+        <p>Your trusted transport and logistics partner in New Brunswick and across Canada.</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">in</a>
+          <a href="#" title="Twitter">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="moving.html">Residential Moving</a></li>
+          <li><a href="moving.html">Commercial Moving</a></li>
+          <li><a href="rental.html">Vehicle Rental</a></li>
+          <li><a href="driving.html">Driving School</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+15061234567">📞 (506) 123-4567</a></li>
+          <li><a href="mailto:info@kingfishernb.ca">✉ info@kingfishernb.ca</a></li>
+          <li>📍 New Brunswick, Canada</li>
+          <li>Mon–Sat: 8 AM – 7 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kingfisher Transport &amp; Logistics. All rights reserved.</span>
+      <span>New Brunswick, Canada 🍁</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SUCCESS MODAL ═══ -->
+<div class="modal-overlay" id="moving-success-modal">
+  <div class="modal">
+    <div class="modal-icon">✅</div>
+    <h3>Quote Request Received!</h3>
+    <p>Thank you! We've received your moving request and our team will contact you <strong>within 30 minutes</strong> by email and phone with your personalised quote.</p>
+    <button class="btn btn-primary" data-close-modal="moving-success-modal" style="width:100%;justify-content:center;">
+      Back to Moving
+    </button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
