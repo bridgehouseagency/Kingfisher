@@ -713,7 +713,7 @@ ul { list-style: none; }
   color: var(--kf-gray);
 }
 .pricing-note {
-  background: linear-gradient(135deg, var(--kf-offwhite), #E8F4F8);
+  background: linear-gradient(135deg, var(--kf-offwhite), #F5D0D5);
   border: 1px solid var(--kf-border);
   border-left: 4px solid var(--kf-orange);
   border-radius: var(--radius-sm);
@@ -757,7 +757,7 @@ ul { list-style: none; }
 }
 .car-image {
   position: relative;
-  background: linear-gradient(135deg, var(--kf-offwhite), #DCF0F7);
+  background: linear-gradient(135deg, var(--kf-offwhite), #F5D0D5);
   height: 200px;
   display: flex;
   align-items: center;
@@ -945,7 +945,7 @@ ul { list-style: none; }
 }
 .pricing-feature strong { color: var(--kf-deep); }
 .refresher-card {
-  background: linear-gradient(135deg, var(--kf-offwhite), #E0F2F7);
+  background: linear-gradient(135deg, var(--kf-offwhite), #F5D0D5);
   border: 2px solid var(--kf-border);
   border-radius: var(--radius);
   padding: 36px;
@@ -1120,7 +1120,7 @@ ul { list-style: none; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(2,62,88,0.6);
+  background: rgba(45,4,16,0.6);
   z-index: 2000;
   align-items: center;
   justify-content: center;
@@ -1173,7 +1173,7 @@ ul { list-style: none; }
 }
 .upload-area:hover {
   border-color: var(--kf-bright);
-  background: #EEF8FC;
+  background: #FDF0F2;
 }
 .upload-area input { display: none; }
 .upload-area-icon { font-size: 2rem; margin-bottom: 6px; }
