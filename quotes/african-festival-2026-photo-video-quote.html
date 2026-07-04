@@ -1,0 +1,738 @@
+<style>
+  :root {
+    --page-bg: #E4DECB;
+    --paper: #FAF6EA;
+    --ink: #221D14;
+    --ink-soft: #5B5346;
+    --ink-faint: #8A8069;
+    --gold: #9C6D22;
+    --gold-strong: #7C5416;
+    --green: #33502F;
+    --red: #7C2A22;
+    --line: rgba(34,29,20,0.16);
+    --line-soft: rgba(34,29,20,0.09);
+    --shadow: rgba(34,29,20,0.22);
+    --chip-tbd-bg: rgba(156,109,34,0.14);
+    --chip-tbd-fg: #7C5416;
+    --chip-ok-bg: rgba(51,80,47,0.13);
+    --chip-ok-fg: #33502F;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #100D08;
+      --paper: #1C170F;
+      --ink: #EFE7D4;
+      --ink-soft: #B9AE97;
+      --ink-faint: #8A8069;
+      --gold: #D9A857;
+      --gold-strong: #E9C27E;
+      --green: #86AF80;
+      --red: #CC7C6E;
+      --line: rgba(239,231,212,0.16);
+      --line-soft: rgba(239,231,212,0.09);
+      --shadow: rgba(0,0,0,0.55);
+      --chip-tbd-bg: rgba(217,168,87,0.16);
+      --chip-tbd-fg: #E9C27E;
+      --chip-ok-bg: rgba(134,175,128,0.16);
+      --chip-ok-fg: #9CC796;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #100D08;
+    --paper: #1C170F;
+    --ink: #EFE7D4;
+    --ink-soft: #B9AE97;
+    --ink-faint: #8A8069;
+    --gold: #D9A857;
+    --gold-strong: #E9C27E;
+    --green: #86AF80;
+    --red: #CC7C6E;
+    --line: rgba(239,231,212,0.16);
+    --line-soft: rgba(239,231,212,0.09);
+    --shadow: rgba(0,0,0,0.55);
+    --chip-tbd-bg: rgba(217,168,87,0.16);
+    --chip-tbd-fg: #E9C27E;
+    --chip-ok-bg: rgba(134,175,128,0.16);
+    --chip-ok-fg: #9CC796;
+  }
+  :root[data-theme="light"] {
+    --page-bg: #E4DECB;
+    --paper: #FAF6EA;
+    --ink: #221D14;
+    --ink-soft: #5B5346;
+    --ink-faint: #8A8069;
+    --gold: #9C6D22;
+    --gold-strong: #7C5416;
+    --green: #33502F;
+    --red: #7C2A22;
+    --line: rgba(34,29,20,0.16);
+    --line-soft: rgba(34,29,20,0.09);
+    --shadow: rgba(34,29,20,0.22);
+    --chip-tbd-bg: rgba(156,109,34,0.14);
+    --chip-tbd-fg: #7C5416;
+    --chip-ok-bg: rgba(51,80,47,0.13);
+    --chip-ok-fg: #33502F;
+  }
+
+  * { box-sizing: border-box; }
+
+  body, .quote-page { }
+
+  .quote-page {
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: "Avenir Next", "Century Gothic", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 48px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .sheet {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    box-shadow: 0 24px 60px -30px var(--shadow);
+    padding: 52px 56px 60px;
+    position: relative;
+  }
+
+  .print-btn {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 9px 14px;
+    cursor: pointer;
+  }
+  .print-btn:hover { border-color: var(--gold); color: var(--gold-strong); }
+  .print-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .agency-mark {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .agency-sub {
+    margin-top: 4px;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  .meta-block {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .meta-block strong { color: var(--ink); font-weight: 600; }
+  .meta-block .meta-label {
+    display: inline-block;
+    min-width: 92px;
+    text-align: left;
+    color: var(--ink-faint);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+  }
+  .meta-row { display: flex; justify-content: flex-end; gap: 10px; }
+
+  .title-block { margin: 34px 0 30px; }
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-strong);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 0 0 8px;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  .fact-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 44px;
+  }
+  .fact {
+    background: var(--paper);
+    padding: 16px 18px;
+  }
+  .fact-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .fact-value {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  section { margin-bottom: 46px; }
+  section:last-of-type { margin-bottom: 0; }
+
+  h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .section-intro {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 62ch;
+    margin: 0 0 22px;
+    line-height: 1.6;
+  }
+
+  /* Coverage schedule spine */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 1.5px;
+    background: var(--line);
+  }
+  .tl-item {
+    position: relative;
+    padding-bottom: 26px;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px var(--paper);
+  }
+  .tl-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+  .tl-day {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--ink);
+  }
+  .tl-time {
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .tl-hours {
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.72rem;
+    color: var(--gold-strong);
+    background: rgba(156,109,34,0.12);
+    border-radius: 2px;
+    padding: 2px 7px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tl-activity { font-size: 0.94rem; color: var(--ink); margin-bottom: 3px; }
+  .tl-venue { font-size: 0.84rem; color: var(--ink-soft); display: flex; align-items: center; gap: 8px; }
+  .chip {
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .chip-tbd { background: var(--chip-tbd-bg); color: var(--chip-tbd-fg); }
+  .chip-ok { background: var(--chip-ok-bg); color: var(--chip-ok-fg); }
+
+  .total-hours-note {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+  }
+  .total-hours-note strong { color: var(--ink); }
+
+  ul.scope-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  ul.scope-list li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.93rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  ul.scope-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  ul.scope-list li strong { font-weight: 600; }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .deliverable-card {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 18px 20px;
+    background: var(--paper);
+  }
+  .deliverable-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .deliverable-title {
+    font-weight: 600;
+    font-size: 0.96rem;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .deliverable-desc {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .deliverable-when {
+    margin-top: 10px;
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+  }
+
+  table.pricing {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  table.pricing th {
+    text-align: left;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.pricing th.num, table.pricing td.num { text-align: right; }
+  table.pricing td {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+    vertical-align: top;
+  }
+  table.pricing td.num, table.pricing td.rate {
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  table.pricing tfoot td {
+    border-bottom: none;
+    border-top: 1.5px solid var(--ink);
+    padding-top: 16px;
+    font-weight: 700;
+  }
+  table.pricing tfoot .total-label {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.05rem;
+  }
+  table.pricing tfoot .total-value {
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 1.15rem;
+    color: var(--red);
+    font-variant-numeric: tabular-nums;
+  }
+  .pricing-wrap { overflow-x: auto; }
+  .rate-note {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  .addons {
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .addons-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .addons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .addon-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+  }
+  .addon-row .addon-name { color: var(--ink); }
+  .addon-row .addon-price {
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  ol.terms {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  ol.terms li {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink);
+    padding-left: 4px;
+  }
+  ol.terms li::marker {
+    color: var(--gold-strong);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.82rem;
+  }
+
+  .signoff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 8px;
+  }
+  .sign-col .sign-role {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 30px;
+  }
+  .sign-line {
+    border-top: 1px solid var(--ink);
+    padding-top: 8px;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  .doc-footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .sheet { padding: 34px 22px 44px; }
+    .letterhead { flex-direction: column; }
+    .meta-block { text-align: left; }
+    .meta-row { justify-content: flex-start; }
+    .fact-strip { grid-template-columns: 1fr 1fr; }
+    .deliverables-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.9rem; }
+  }
+
+  @media print {
+    .quote-page { background: #fff; padding: 0; }
+    .sheet { box-shadow: none; border: none; max-width: none; padding: 0; }
+    .print-btn { display: none; }
+  }
+</style>
+
+<div class="quote-page">
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="sheet">
+
+    <div class="letterhead">
+      <div>
+        <div class="agency-mark">Bridgehouse Agency</div>
+        <div class="agency-sub">Photography &amp; Videography Services</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-row"><span class="meta-label">Quote No.</span><strong>BHA-AFC26-001</strong></div>
+        <div class="meta-row"><span class="meta-label">Issued</span><span>July 4, 2026</span></div>
+        <div class="meta-row"><span class="meta-label">Valid Through</span><span>August 3, 2026</span></div>
+      </div>
+    </div>
+
+    <div class="title-block">
+      <div class="eyebrow">Proposal &amp; Quote</div>
+      <h1>African Festival Canada</h1>
+      <div class="subtitle">2026 Edition — Event Photography &amp; Videography Coverage</div>
+    </div>
+
+    <div class="fact-strip">
+      <div class="fact">
+        <div class="fact-label">Festival Dates</div>
+        <div class="fact-value">Aug 20–22, 2026</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Primary Venue</div>
+        <div class="fact-value">Downtown Place, Moncton NB</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">On-Site Coverage</div>
+        <div class="fact-value">16 hours across 3 days</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Hourly Rate</div>
+        <div class="fact-value">$80 / hour</div>
+      </div>
+    </div>
+
+    <section>
+      <h2>Coverage Schedule</h2>
+      <p class="section-intro">Coverage mirrors the published festival programme, with a crew on site for the full run of each day's activities.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-day">Thursday, Aug 20</span>
+            <span class="tl-time">10:00 am – 1:00 pm</span>
+            <span class="tl-hours">3 hrs</span>
+          </div>
+          <div class="tl-activity">Small / Start-up Business Workshop</div>
+          <div class="tl-venue"><span class="chip chip-tbd">Venue TBD</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-day">Friday, Aug 21</span>
+            <span class="tl-time">5:00 pm – 10:00 pm</span>
+            <span class="tl-hours">5 hrs</span>
+          </div>
+          <div class="tl-activity">African Festival Street Jams &amp; Community Performances</div>
+          <div class="tl-venue"><span class="chip chip-ok">Confirmed</span> Downtown Place</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-head">
+            <span class="tl-day">Saturday, Aug 22</span>
+            <span class="tl-time">2:00 pm – 10:00 pm</span>
+            <span class="tl-hours">8 hrs</span>
+          </div>
+          <div class="tl-activity">African Festival Exhibition &amp; Cultural Performances</div>
+          <div class="tl-venue"><span class="chip chip-ok">Confirmed</span> Downtown Place</div>
+        </div>
+      </div>
+      <div class="total-hours-note">Total on-site production time: <strong>16 hours</strong> across the three-day festival.</div>
+    </section>
+
+    <section>
+      <h2>Scope of Coverage</h2>
+      <ul class="scope-list">
+        <li><strong>Photography</strong> — candid and posed coverage of performances, vendors, the business workshop, crowds, and sponsor/partner signage each day.</li>
+        <li><strong>Videography</strong> — multi-angle video of performances, the street jams, and the exhibition, shot for both the daily highlights and the full recap edit.</li>
+        <li><strong>Attendee &amp; performer interviews</strong> — short on-camera interviews conducted across all three days, to be woven into the full festival video rather than published on their own.</li>
+        <li><strong>Same-week turnaround</strong> on daily highlight edits, so each day's video is ready to post while the festival is still running.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Deliverables</h2>
+      <div class="deliverables-grid">
+        <div class="deliverable-card">
+          <div class="deliverable-label">Daily · ×3</div>
+          <div class="deliverable-title">Short Highlight Videos</div>
+          <div class="deliverable-desc">One 60–90 second recap per event day (workshop, street jams, exhibition), cut for same-day or next-morning posting.</div>
+          <div class="deliverable-when">Delivered within 48 hours of each event day</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-label">Full Festival</div>
+          <div class="deliverable-title">Medium-Length Recap Video</div>
+          <div class="deliverable-desc">A 5–8 minute film combining footage from all three days with attendee and performer interview segments woven throughout.</div>
+          <div class="deliverable-when">Delivered within 10 business days of festival close</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-label">Interviews</div>
+          <div class="deliverable-title">Attendee &amp; Performer Segments</div>
+          <div class="deliverable-desc">On-camera interviews recorded across the festival, edited and integrated into the full recap video as its narrative throughline.</div>
+          <div class="deliverable-when">Included in the full festival recap video</div>
+        </div>
+        <div class="deliverable-card">
+          <div class="deliverable-label">Photography</div>
+          <div class="deliverable-title">Edited Digital Gallery</div>
+          <div class="deliverable-desc">Culled, colour-corrected, high-resolution photo gallery covering all three days, delivered via online download link.</div>
+          <div class="deliverable-when">Delivered within 10 business days of festival close</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Investment</h2>
+      <p class="section-intro">Priced at a flat rate of $80/hour across production and post-production.</p>
+      <div class="pricing-wrap">
+        <table class="pricing">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th class="num">Hours</th>
+              <th class="num">Rate</th>
+              <th class="num">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>On-site photography &amp; videography — all 3 event days</td>
+              <td class="num">16</td>
+              <td class="rate num">$80/hr</td>
+              <td class="num">$1,280</td>
+            </tr>
+            <tr>
+              <td>Attendee &amp; performer interviews (on-site)</td>
+              <td class="num">4</td>
+              <td class="rate num">$80/hr</td>
+              <td class="num">$320</td>
+            </tr>
+            <tr>
+              <td>Daily highlight video editing (3 short-form cuts)</td>
+              <td class="num">12</td>
+              <td class="rate num">$80/hr</td>
+              <td class="num">$960</td>
+            </tr>
+            <tr>
+              <td>Full festival recap video editing (incl. interviews)</td>
+              <td class="num">10</td>
+              <td class="rate num">$80/hr</td>
+              <td class="num">$800</td>
+            </tr>
+            <tr>
+              <td>Photo culling, editing &amp; gallery delivery</td>
+              <td class="num">6</td>
+              <td class="rate num">$80/hr</td>
+              <td class="num">$480</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="total-label">Total Investment</td>
+              <td class="num">48 hrs</td>
+              <td></td>
+              <td class="num total-value">$3,840</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p class="rate-note">Excludes travel outside Greater Moncton, drone permits, and printed materials. Any coverage or editing hours beyond this scope are billed at the same $80/hour rate.</p>
+
+      <div class="addons">
+        <div class="addons-title">Available on request</div>
+        <div class="addons-list">
+          <div class="addon-row"><span class="addon-name">Aerial / drone footage</span><span class="addon-price">quote on request</span></div>
+          <div class="addon-row"><span class="addon-name">Same-day social media cut-downs (15–30 sec)</span><span class="addon-price">quote on request</span></div>
+          <div class="addon-row"><span class="addon-name">Printed photo booklet / sponsor recap deck</span><span class="addon-price">quote on request</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Terms</h2>
+      <ol class="terms">
+        <li>A 50% deposit ($1,920) confirms the booking; the remaining balance ($1,920) is due within 7 days of final delivery.</li>
+        <li>Daily highlight videos are delivered within 48 hours of their respective event day; the full recap video and photo gallery follow within 10 business days of the festival's close.</li>
+        <li>Raw footage and images remain the property of Bridgehouse Agency until final payment is received; final edited deliverables are licensed to African Festival Canada for promotional, social, and archival use.</li>
+        <li>This quote is valid for 30 days from the issue date above.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Acceptance</h2>
+      <div class="signoff">
+        <div class="sign-col">
+          <div class="sign-role">Bridgehouse Agency</div>
+          <div class="sign-line">Signature</div>
+          <div class="sign-line">Name &amp; Date</div>
+        </div>
+        <div class="sign-col">
+          <div class="sign-role">African Festival Canada</div>
+          <div class="sign-line">Signature</div>
+          <div class="sign-line">Name &amp; Date</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="doc-footer">
+      <span>Prepared by Bridgehouse Agency for African Festival Canada — 2026 Edition</span>
+      <span>Quote BHA-AFC26-001 · Valid through August 3, 2026</span>
+    </div>
+
+  </div>
+</div>
