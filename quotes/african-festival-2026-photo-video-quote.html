@@ -366,44 +366,13 @@
     color: var(--ink-faint);
     letter-spacing: 0.02em;
   }
+  .deliverable-card-wide { grid-column: 1 / -1; }
 
   .rate-note {
     margin-top: 14px;
     font-size: 0.8rem;
     color: var(--ink-faint);
     line-height: 1.6;
-  }
-
-  .addons {
-    margin-top: 24px;
-    border-top: 1px solid var(--line);
-    padding-top: 20px;
-  }
-  .addons-title {
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-    margin-bottom: 12px;
-    font-weight: 600;
-  }
-  .addons-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .addon-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    font-size: 0.86rem;
-    color: var(--ink-soft);
-  }
-  .addon-row .addon-name { color: var(--ink); }
-  .addon-row .addon-price {
-    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-    color: var(--ink-faint);
-    white-space: nowrap;
   }
 
   ol.terms {
@@ -427,7 +396,7 @@
 
   .signoff {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 280px);
     gap: 40px;
     margin-top: 8px;
   }
@@ -502,7 +471,7 @@
         <div class="agency-sub">Photography &amp; Videography Services</div>
       </div>
       <div class="meta-block">
-        <div class="meta-row"><span class="meta-label">Quote No.</span><strong>BHA-AFC26-001</strong></div>
+        <div class="meta-row"><span class="meta-label">Quote No.</span><strong>BRD-AFC26-001</strong></div>
         <div class="meta-row"><span class="meta-label">Issued</span><span>July 4, 2026</span></div>
         <div class="meta-row"><span class="meta-label">Valid Through</span><span>August 3, 2026</span></div>
       </div>
@@ -602,6 +571,12 @@
           <div class="deliverable-desc">Culled, colour-corrected, high-resolution photo gallery covering all three days, delivered via online download link.</div>
           <div class="deliverable-when">Delivered within 10 business days of festival close</div>
         </div>
+        <div class="deliverable-card deliverable-card-wide">
+          <div class="deliverable-label">Daily · Min. 20 Photos</div>
+          <div class="deliverable-title">Same-Day Social Photos</div>
+          <div class="deliverable-desc">A minimum of 20 edited photos delivered at the end of each event day, ready to post and keep the buzz going while the festival is still running.</div>
+          <div class="deliverable-when">Delivered by end of each event day</div>
+        </div>
       </div>
     </section>
 
@@ -626,15 +601,7 @@
           <div class="fact-value">$3,250</div>
         </div>
       </div>
-      <p class="rate-note">Excludes travel outside Greater Moncton, drone permits, and printed materials. Coverage requested beyond this scope will be quoted separately.</p>
-
-      <div class="addons">
-        <div class="addons-title">Available on request</div>
-        <div class="addons-list">
-          <div class="addon-row"><span class="addon-name">Same-day social media cut-downs (15–30 sec)</span><span class="addon-price">quote on request</span></div>
-          <div class="addon-row"><span class="addon-name">Printed photo booklet / sponsor recap deck</span><span class="addon-price">quote on request</span></div>
-        </div>
-      </div>
+      <p class="rate-note">Includes all editing, delivery, and post-production — no travel costs apply. Coverage requested beyond this scope will be quoted separately.</p>
     </section>
 
     <section>
@@ -655,17 +622,12 @@
           <div class="sign-line">Signature</div>
           <div class="sign-line">Name &amp; Date</div>
         </div>
-        <div class="sign-col">
-          <div class="sign-role">African Festival Canada</div>
-          <div class="sign-line">Signature</div>
-          <div class="sign-line">Name &amp; Date</div>
-        </div>
       </div>
     </section>
 
     <div class="doc-footer">
       <span>Prepared by Bridgehouse Agency for African Festival Canada — 2026 Edition</span>
-      <span>Quote BHA-AFC26-001 · Valid through August 3, 2026</span>
+      <span>Quote BRD-AFC26-001 · Valid through August 3, 2026</span>
     </div>
 
   </div>
